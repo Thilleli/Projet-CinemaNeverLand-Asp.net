@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace CinemaNerverland
 {
-    public partial class Connexion : System.Web.UI.Page
+    public partial class Inscription : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,11 +23,21 @@ namespace CinemaNerverland
 
             //Response.Write("Connection Réussie");
             cnn.Close();
+
         }
         protected void send_Click(object sender, EventArgs e)
         {
-
-            Session["Nom"] = connexionID.Text;
+            if (InscriptionNom.Text!="" && InscriptionName.Text!="" && InscriptionAge.Text != "" && InscriptionMail.Text != "" && InscriptionID.Text != "" && InscriptionMDP.Text != "" && InscriptionMDPC.Text != "") { 
+                if(InscriptionMDP.Text != InscriptionMDPC.Text)
+                {
+                    Response.Write("Les deux mot de passe ne coresspondent pas ");
+                }
+            }
+            else
+            {
+                Response.Write("Veuillez remplir tout les champs ");
+            }
+            Session["Nom"] = InscriptionID.Text;
             Response.Write(Session["Nom"]);
             /*string connetionString;
             MySqlConnection cnn;
@@ -48,6 +58,5 @@ namespace CinemaNerverland
 
             cnn.Close();*/
         }
-
     }
 }
