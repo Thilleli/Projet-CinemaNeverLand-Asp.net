@@ -11,7 +11,7 @@ namespace CinemaNerverland
 {
     public partial class Connexion : System.Web.UI.Page
     {
-        public object ErrorMessage { get; private set; }
+        
         public string Texte { get; private set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,25 +25,19 @@ namespace CinemaNerverland
 
             cnn.Open();
 
-            Response.Write("Connection Réussie");
+            //Response.Write("Connection Réussie");
             cnn.Close();
         }
         protected void send_Click(object sender, EventArgs e)
         {
-            if(connexionID.Text != "" && ConnexionMDP.Text != ""){
-
-                Response.Write ("yes");
-            }
            
-            /*string connetionString;
-
+                string connetionString;
                 connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
                 //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
                 MySqlConnection cnn = new MySqlConnection(connetionString);
 
                 cnn.Open();
-                Response.Write("Connection Réussie");
                 MySqlCommand cmd = new MySqlCommand("select count(*) from user where login_user='"+connexionID.Text+ "' and mdp_user='"+ConnexionMDP.Text+"' ", cnn);
                 MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
                 System.Data.DataTable dt = new System.Data.DataTable();
@@ -59,7 +53,7 @@ namespace CinemaNerverland
                 }
 
 
-                cnn.Close();*/
+                cnn.Close();
 
             
         }
