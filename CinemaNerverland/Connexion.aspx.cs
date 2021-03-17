@@ -5,11 +5,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
+using System.Web.Configuration;
 
 namespace CinemaNerverland
 {
     public partial class Connexion : System.Web.UI.Page
     {
+        public object ErrorMessage { get; private set; }
+        public string Texte { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string connetionString;
@@ -21,32 +25,43 @@ namespace CinemaNerverland
 
             cnn.Open();
 
-            //Response.Write("Connection Réussie");
+            Response.Write("Connection Réussie");
             cnn.Close();
         }
         protected void send_Click(object sender, EventArgs e)
         {
+            if(connexionID.Text != "" && ConnexionMDP.Text != ""){
 
-            Session["Nom"] = connexionID.Text;
-            Response.Write(Session["Nom"]);
+                Response.Write ("yes");
+            }
+           
             /*string connetionString;
-            MySqlConnection cnn;
 
-            connetionString = @"Server=DESKTOP-ISBOFB1\SQLEXPRESS;Trusted_Connection=True;Database=demodb ;User ID=Mylogin;Password=123";
+                connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+                //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            cnn = new MySqlConnection(connetionString);
-            cnn.Open();
-            MySqlCommand command;
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            String sql = "SELECT login_user, mdp_user, nom_user, prenom_user, age_user, mail_user, id_user FROM user ";
+                MySqlConnection cnn = new MySqlConnection(connetionString);
 
-            command = new MySqlCommand(sql, cnn);
-            adapter.InsertCommand = command;
-            adapter.InsertCommand.ExecuteNonQuery();
+                cnn.Open();
+                Response.Write("Connection Réussie");
+                MySqlCommand cmd = new MySqlCommand("select count(*) from user where login_user='"+connexionID.Text+ "' and mdp_user='"+ConnexionMDP.Text+"' ", cnn);
+                MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+                System.Data.DataTable dt = new System.Data.DataTable();
+                sda.Fill(dt);
+                cmd.ExecuteNonQuery();
+                if (dt.Rows[0][0].ToString() == "1")
+                {
+                    ErrorMessage.Text = "Vous êtes bien connecté";
+                }
+                else
+                {
+                    ErrorMessage.Text = "Utilisateur introuvable!";
+                }
 
-            command.Dispose();
 
-            cnn.Close();*/
+                cnn.Close();*/
+
+            
         }
 
     }
