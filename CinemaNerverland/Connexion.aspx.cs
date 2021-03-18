@@ -26,27 +26,29 @@ namespace CinemaNerverland
         }
         protected void send_Click(object sender, EventArgs e)
         {
-
-            Session["Nom"] = connexionID.Text;
-            Response.Write(Session["Nom"]);
-            /*string connetionString;
+            string connetionString;
             MySqlConnection cnn;
 
-            connetionString = @"Server=DESKTOP-ISBOFB1\SQLEXPRESS;Trusted_Connection=True;Database=demodb ;User ID=Mylogin;Password=123";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
-            MySqlCommand command;
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            String sql = "SELECT login_user, mdp_user, nom_user, prenom_user, age_user, mail_user, id_user FROM user ";
 
-            command = new MySqlCommand(sql, cnn);
-            adapter.InsertCommand = command;
-            adapter.InsertCommand.ExecuteNonQuery();
+            MySqlCommand cmd = new MySqlCommand("select count(*) from user where login_user='" + connexionID.Text + "' and mdp_user='" + ConnexionMDP.Text + "' ", cnn);
+            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+            cmd.ExecuteNonQuery();
+            if (dt.Rows[0][0].ToString() == "1")
+            {
+                ErrorMessage.Text = "Vous êtes bien connecté" ;
+            }
+            else
+            {
+                ErrorMessage.Text = "Utilisateur introuvable!" ;
+            }
 
-            command.Dispose();
-
-            cnn.Close();*/
+            cnn.Close();
         }
 
     }

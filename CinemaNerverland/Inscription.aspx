@@ -71,7 +71,7 @@
     </p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;<asp:Button ID="send" runat="server" Text="Valider" Width="241px" OnClick="send_Click" /></p>
     <p>Vous avez déja un compte ?
-        <asp:LinkButton ID="Connexion" runat="server">Connectez-vous ici</asp:LinkButton>
+        <asp:LinkButton ID="Connexion" runat="server"  href="Connexion.aspx">Connectez-vous ici</asp:LinkButton>
     </p>
     <p>&nbsp;</p>
    

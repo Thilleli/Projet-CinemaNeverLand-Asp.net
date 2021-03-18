@@ -63,7 +63,7 @@ namespace CinemaNerverland
 
                     adapter.InsertCommand.ExecuteNonQuery();
                     command.Dispose();
-
+                    ErrorMessage.Text = "Inscription Réussie ";
                     cnn.Close();
                 }
             }
