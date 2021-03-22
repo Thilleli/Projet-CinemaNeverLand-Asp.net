@@ -239,7 +239,6 @@
     </Compile>
     <Compile Include="Inscription.aspx.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
