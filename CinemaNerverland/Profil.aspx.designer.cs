@@ -11,7 +11,7 @@ namespace CinemaNerverland
 {
 
 
-    public partial class Contact
+    public partial class Profil
     {
     }
 }
