@@ -42,7 +42,7 @@ namespace CinemaNerverland
             if (dt.Rows[0][0].ToString() == "1")
             {
                 ErrorMessage.Text = "Vous êtes bien connecté";
-                Session["ID"] = connexionID.Text;
+                Session["login"] = connexionID.Text;
 
                 // Response.Write(Session["ID"]);
                 Response.Redirect("~/Profil");
