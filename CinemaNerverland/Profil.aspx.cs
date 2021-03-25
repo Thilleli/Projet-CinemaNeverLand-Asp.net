@@ -19,7 +19,7 @@ namespace CinemaNerverland
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
-
+            //connexion
             MySqlCommand command;
             MySqlDataReader dataReader;
             String sql, Login = " ", Nom=" ", Prenom=" ", Age=" ", Mail=" ";
