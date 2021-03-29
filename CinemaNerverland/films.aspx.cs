@@ -42,6 +42,7 @@ namespace CinemaNerverland
             }
             Image.Text = img.ToString();
             Response.Write(titre);
+            Response.Write(titre);
             Response.Write(date);
             Response.Write(genre);
             Response.Write(prix);
