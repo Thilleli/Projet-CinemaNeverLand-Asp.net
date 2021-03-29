@@ -15,7 +15,7 @@ namespace CinemaNerverland
             string connetionString;
             MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
@@ -61,7 +61,7 @@ namespace CinemaNerverland
             string connetionString;
             MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
