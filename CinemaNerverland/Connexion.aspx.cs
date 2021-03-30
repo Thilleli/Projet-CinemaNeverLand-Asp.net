@@ -45,6 +45,7 @@ namespace CinemaNerverland
                 Session["login"] = connexionID.Text;
 
                 // Response.Write(Session["ID"]);
+                // Response.Write(Session["ID"]);
                 Response.Redirect("~/Profil");
 
             }
