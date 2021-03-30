@@ -15,24 +15,34 @@ namespace CinemaNerverland
             string connetionString;
             MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
 
             MySqlCommand command;
             MySqlDataReader dataReader;
-            String sql, Login= " ";
-            sql = "select nom_user,login_user from user where login_user='" + Session["ID"]+"'";
+            String sql, Login = " ", Nom = " ", Prenom = " ", Age = " ", Mail = " ";
+            sql = "select nom_user,prenom_user,age_user,mail_user,login_user from user where login_user='" + Session["login"] + "'";
 
             command = new MySqlCommand(sql, cnn);
 
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                Login = "Nom : "+ dataReader.GetValue(0) + "</br> Login : "+ dataReader.GetValue(1);
+                Nom = "Nom : " + dataReader.GetValue(0) + "</br>";
+                Prenom = "Prénom : " + dataReader.GetValue(1) + "</br>";
+                Age = "Age : " + dataReader.GetValue(2) + "</br>";
+                Mail = "Adresse mail : " + dataReader.GetValue(3) + "</br>";
+                Login = "Login : " + dataReader.GetValue(4) + "</br>";
+
             }
-            Response.Write(Login);
+            nom.Text = Nom.ToString();
+            prenom.Text = Prenom.ToString();
+            age.Text = Age.ToString();
+            mail.Text = Mail.ToString();
+            login.Text = Login.ToString();
+
             dataReader.Close();
             command.Dispose();
 
@@ -42,9 +52,29 @@ namespace CinemaNerverland
 
         protected void Session_OnEnd(object sender, EventArgs e)
         {
+            Session.Abandon();
             Response.Redirect("Connexion.aspx");
+        }
 
+        protected void Delet_user(object sender, EventArgs e)
+        {
+            string connetionString;
+            MySqlConnection cnn;
 
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
+
+            cnn = new MySqlConnection(connetionString);
+            cnn.Open();
+
+            MySqlCommand command;
+            String sql;
+            sql = "DELETE FROM user WHERE login_user='" + Session["login"] + "'";
+
+            command = new MySqlCommand(sql, cnn);
+
+            command.ExecuteNonQuery();
+
+            cnn.Close();
         }
     }
 }

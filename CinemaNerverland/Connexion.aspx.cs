@@ -14,7 +14,7 @@ namespace CinemaNerverland
         {
             string connetionString;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
             //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             MySqlConnection cnn = new MySqlConnection(connetionString);
@@ -29,7 +29,7 @@ namespace CinemaNerverland
             string connetionString;
             MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
@@ -42,7 +42,7 @@ namespace CinemaNerverland
             if (dt.Rows[0][0].ToString() == "1")
             {
                 ErrorMessage.Text = "Vous êtes bien connecté";
-                Session["ID"] = connexionID.Text;
+                Session["login"] = connexionID.Text;
 
                 // Response.Write(Session["ID"]);
                 Response.Redirect("~/Profil");
