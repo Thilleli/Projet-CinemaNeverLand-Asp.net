@@ -21,35 +21,36 @@ namespace CinemaNerverland
             //connexion
             MySqlCommand command;
             MySqlDataReader dataReader;
-            String sql, titre = " ", date = " ", genre = " ", prix = " ", categorie = " ", durée = " ", img = " ";
-            sql = "select * from film";
+            String sql, titre = " ", date = " ", genre = " ", prix = " ", categorie = " ", durée = " ", img = " ",film=" ";
+            sql = "select * from film where date_film > 2021-02-12";
 
             command = new MySqlCommand(sql, cnn);
 
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                img = dataReader.GetValue(7)+"";
-                titre = "Titre : " + dataReader.GetValue(1) + "</br>";
+                img = "<img src='"+dataReader.GetValue(7)+ "'/>";
+                titre = "</br> Titre : " + dataReader.GetValue(1) + "</br>";
                 date = "Date de sortie : " + dataReader.GetValue(2) + "</br>";
                 genre = "Genre : " + dataReader.GetValue(3) + "</br>";
                 prix = "Prix : " + dataReader.GetValue(4) + "€ </br>";
                 categorie = "Catégorie d'age : " + dataReader.GetValue(5) + "</br>";
                 durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
+                film= img+ titre + date + genre + prix + categorie + durée;
+                Response.Write(film);
 
 
             }
-            images.Text = img.ToString();
-            titres.Text = titre.ToString();
-            dates.Text = date.ToString();
-            genres.Text = genre.ToString();
-            price.Text = prix.ToString();
-            Cat.Text = categorie.ToString();
-            time.Text = durée.ToString();
+            /* images.Text = img.ToString();
+             titres.Text = titre.ToString();
+             dates.Text = date.ToString();
+             genres.Text = genre.ToString();
+             price.Text = prix.ToString();
+             Cat.Text = categorie.ToString();
+             time.Text = durée.ToString();
 
-            images.Text = "<img src='" + images.Text + "'/>";
-
-            dataReader.Close();
+             images.Text = "<img src='" + images.Text + "'/>";*/
+             dataReader.Close();
             command.Dispose();
 
             cnn.Close();
