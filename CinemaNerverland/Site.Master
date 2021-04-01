@@ -59,7 +59,7 @@
                          <%if (Session["login"] == "") {%>
                         <li><a runat="server" href="~/Profil">Profil</a></li>
                          <%}%>
-                        <li><a runat="server" href="~/films">films</a></li>
+                        
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </div>

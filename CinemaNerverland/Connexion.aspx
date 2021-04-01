@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <h3>Identification</h3>
+    <h3>Identificatifiez-vous</h3>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>

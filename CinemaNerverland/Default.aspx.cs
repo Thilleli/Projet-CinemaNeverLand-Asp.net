@@ -12,15 +12,42 @@ namespace CinemaNerverland
         protected void Page_Load(object sender, EventArgs e)
         {
             string connetionString;
+            MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_data ;User ID=219115_wb;Password=wasefbelhocine01*";
-            //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
-            MySqlConnection cnn = new MySqlConnection(connetionString);
-
+            cnn = new MySqlConnection(connetionString);
             cnn.Open();
+            //connexion
+            MySqlCommand command;
+            MySqlDataReader dataReader;
+            String sql, titre = " ", date = " ", genre = " ", prix = " ", categorie = " ", durée = " ", img = " ", film = " ";
+            sql = "select * from film where date_film > 2021-02-12";
 
-            //Response.Write("Connection Réussie");
+            command = new MySqlCommand(sql, cnn);
+
+            dataReader = command.ExecuteReader();
+            while (dataReader.Read())
+            {
+                img = "<img src='" + dataReader.GetValue(7) + "'/>";
+                titre = "</br> Titre : " + dataReader.GetValue(1) + "</br>";
+                date = "Date de sortie : " + dataReader.GetValue(2) + "</br>";
+                genre = "Genre : " + dataReader.GetValue(3) + "</br>";
+                prix = "Prix : " + dataReader.GetValue(4) + "€ </br>";
+                categorie = "Catégorie d'age : " + dataReader.GetValue(5) + "</br>";
+                durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
+                film = img + titre + date + genre + prix + categorie + durée;
+
+                
+                Response.Write(film);
+
+            }
+            
+            
+             
+            dataReader.Close();
+            command.Dispose();
+
             cnn.Close();
         }
 
