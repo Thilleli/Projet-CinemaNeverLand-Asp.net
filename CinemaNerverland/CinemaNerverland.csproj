@@ -175,9 +175,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="membres\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Inscription.aspx" />
-    <Content Include="Profil.aspx" />
+    <Content Include="membres\Profil.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -252,11 +253,11 @@
     <Compile Include="Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Profil.aspx.cs">
+    <Compile Include="membres\Profil.aspx.cs">
       <DependentUpon>Profil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Profil.aspx.designer.cs">
+    <Compile Include="membres\Profil.aspx.designer.cs">
       <DependentUpon>Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

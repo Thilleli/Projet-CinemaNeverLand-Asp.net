@@ -7,15 +7,21 @@
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
     <p>&nbsp;</p>
-    <p>Entrez votre identifiant :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <asp:Login ID="LoginControl" runat="server" onauthenticate="LoginControl_Authenticate"></asp:Login>
+
+
+    <%--<p>Entrez votre identifiant :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="connexionID" runat="server" Width="234px"></asp:TextBox>
     </p>
     <p>Entrez votre mot de passe :&nbsp;
         <asp:TextBox ID="ConnexionMDP" TextMode="Password" runat="server" Width="237px"></asp:TextBox>
+   
     </p>
     <p>&nbsp;</p>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="send" runat="server" Text="Valider" Width="241px" OnClick="send_Click" />
-        </p>
+        </p>--%>
+
     <p>Vous n&#39;avez pas de un compte?
         <asp:LinkButton ID="Inscription" runat="server" href="Inscription.aspx">Inscrivez-vous ici</asp:LinkButton>
     </p>

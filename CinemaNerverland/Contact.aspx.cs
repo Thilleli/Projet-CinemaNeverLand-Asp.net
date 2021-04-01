@@ -54,47 +54,7 @@ namespace CinemaNerverland
         {
             if (TextBoxNom.Text != "" && TextBoxPrenom.Text != "" && TextBoxMail.Text != "" && TextBoxObjet.Text != "" && TextBoxMessage.Text != "")
             {
-                /*string utilisateur, password, serveur;
-
                 
-
-                MailMessage email = new MailMessage();
-
-                utilisateur = ConfigurationSettings.AppSettings["SmtpUtilisateur"];
-                password = ConfigurationSettings.AppSettings["SmtpPassword"];
-                serveur = ConfigurationSettings.AppSettings["SmtpServeur"];
-  
-                email.From = TextBoxMail.Text;
-                email.To = "lilybelhocine006@gmail.com";
-                email.Subject = TextBoxObjet.Text;
-                email.Body = TextBoxMessage.Text;
-
-                //email.Priority = MailPriority.High;
-                SmtpMail.SmtpServer = "gmail.com";
-
-                email.Fields.Add("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate", "1");
-                email.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendusername", utilisateur);
-                email.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendpassword", password);
-                SmtpMail.SmtpServer = serveur;
-                try
-                {
-                    SmtpMail.Send(email);
-                    LabelSendnoOk.Text = " ";
-                    LabelSendOk.Text = "Nous avons bien reçue votre message, nous allons vous répondre très prochainement! ";
-
-                    TextBoxNom.Text = " ";
-                    TextBoxPrenom.Text = " ";
-                    TextBoxMail.Text = " ";
-                    TextBoxObjet.Text = " ";
-                    TextBoxMessage.Text = " ";
-
-                }
-                catch (Exception ex)
-                {
-                    LabelSendnoOk.Text = ex.Message;
-                    /*LabelSendnoOk.Text = "Une erreur s'est produite, votre message n'a pas pu etre envoyé! ";
-                    LabelSendOk.Text = " ";
-                }*/
                 LabelSendnoOk.Text = " ";
                 LabelSendOk.Text = "Nous avons bien reçue votre message, nous allons vous répondre très prochainement! ";
 

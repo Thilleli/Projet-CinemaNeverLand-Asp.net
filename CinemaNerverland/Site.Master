@@ -52,12 +52,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Accueil</a></li>
-                        <%if (Session["login"]!="") {%>
+                        <%if (String.IsNullOrEmpty((string)Session["login"])) {%>
                         <li><a runat="server" href="~/Connexion">Connexion/Inscription</a></li>
+
                          <%}%>
 
-                         <%if (Session["login"] == "") {%>
-                        <li><a runat="server" href="~/Profil">Profil</a></li>
+                         <%else {%>
+                        <li><a runat="server" href="~/membres/Profil">Profil</a></li>
                          <%}%>
                         
                         <li><a runat="server" href="~/Contact">Contact</a></li>
