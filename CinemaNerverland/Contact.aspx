@@ -1,7 +1,12 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="CinemaNerverland.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Nous contacter:</h2>
+
+    <h3> <strong>Contactez <asp:Label ID="NomCin" runat="server"></asp:Label></strong> </h3><br />
+    <p><strong> Par téléphone au:</strong>  0<asp:Label ID="telCin" runat="server"></asp:Label></p><br />
+    <p> <strong>Par courrier au:</strong> <asp:Label ID="addCin" runat="server"></asp:Label> <asp:Label ID="villecin" runat="server"></asp:Label> </p><br />
+
+    <p><strong>Sinon, écrivez nous ici : </strong></p>
 
     <table class="nav-justified">
         <p style="color: green; font-weight :bold;"> <asp:Literal runat="server" ID="LabelSendOk" />
