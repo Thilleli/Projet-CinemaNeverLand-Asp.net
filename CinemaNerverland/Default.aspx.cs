@@ -38,13 +38,13 @@ namespace CinemaNerverland
                 durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
                 film = img + titre + date + genre + prix + categorie + durée;
 
-                films.Text = film.ToString();
+                
                 Response.Write(film);
 
             }
-
-
-
+            
+            
+             
             dataReader.Close();
             command.Dispose();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
@@ -19,10 +20,10 @@ namespace CinemaNerverland
 
             cnn = new MySqlConnection(connetionString);
             cnn.Open();
-
+            //connexion
             MySqlCommand command;
             MySqlDataReader dataReader;
-            String sql, Login = " ", Nom = " ", Prenom = " ", Age = " ", Mail = " ";
+            String sql, Login = " ", Nom=" ", Prenom=" ", Age=" ", Mail=" ";
             sql = "select nom_user,prenom_user,age_user,mail_user,login_user from user where login_user='" + Session["login"] + "'";
 
             command = new MySqlCommand(sql, cnn);
@@ -30,11 +31,11 @@ namespace CinemaNerverland
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
             {
-                Nom = "Nom : " + dataReader.GetValue(0) + "</br>";
-                Prenom = "Prénom : " + dataReader.GetValue(1) + "</br>";
-                Age = "Age : " + dataReader.GetValue(2) + "</br>";
-                Mail = "Adresse mail : " + dataReader.GetValue(3) + "</br>";
-                Login = "Login : " + dataReader.GetValue(4) + "</br>";
+                Nom= "Nom : " + dataReader.GetValue(0)+"</br>";
+                Prenom = "Prénom : " + dataReader.GetValue(1)+"</br>";
+                Age = "Age : " + dataReader.GetValue(2)+"</br>";
+                Mail = "Adresse mail : " + dataReader.GetValue(3)+"</br>";
+                Login = "Login : " + dataReader.GetValue(4)+"</br>";
 
             }
             nom.Text = Nom.ToString();
@@ -53,7 +54,9 @@ namespace CinemaNerverland
         protected void Session_OnEnd(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("Connexion.aspx");
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
+
         }
 
         protected void Delet_user(object sender, EventArgs e)
@@ -75,6 +78,9 @@ namespace CinemaNerverland
             command.ExecuteNonQuery();
 
             cnn.Close();
+
+
+            Response.Redirect("../Connexion.aspx");
         }
     }
 }

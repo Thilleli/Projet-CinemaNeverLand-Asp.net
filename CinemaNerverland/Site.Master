@@ -47,16 +47,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nom de l'application</a>
+                    <a class="navbar-brand" runat="server" href="~/">NEVERLANDCINEMA</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Accueil</a></li>
-                        <%if (Session["login"]!="") {%>
+                        <%if (String.IsNullOrEmpty((string)Session["login"])) {%>
                         <li><a runat="server" href="~/Connexion">Connexion/Inscription</a></li>
+
                          <%}%>
-                        <li><a runat="server" href="~/Profil">Profil</a></li>
-                        <li><a runat="server" href="~/About">À propos de</a></li>
+
+                         <%else {%>
+                        <li><a runat="server" href="~/membres/Profil">Profil</a></li>
+                         <%}%>
+                        
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </div>

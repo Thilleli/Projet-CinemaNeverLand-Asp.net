@@ -4,12 +4,12 @@
 
         <h1>Les films disponible actuellement</h1>
 
-        <br />
-        <div class="card" style="width: 500px;border:groove; border-block-color: aqua" >
-            <div class="card-body">
-                <asp:Label ID="films" runat="server"></asp:Label>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
                 
-            </div>
-        </div> 
-        
+            </p>
+        </div>
+    </div>
+
 </asp:Content>

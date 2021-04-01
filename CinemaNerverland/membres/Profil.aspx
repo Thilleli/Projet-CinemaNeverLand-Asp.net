@@ -12,6 +12,9 @@
 
 
     <p><asp:Button ID="Abandon" runat="server" Text="Se déconnecter" Width="241px" OnClick="Session_OnEnd" ></asp:Button></p>
+
+    <%--<asp:LoginStatus ID="LoginStatus" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/connexion.aspx" />--%>
+
     <p><asp:Button ID="DeletUser" runat="server" Text="Se désinscrire" Width="241px" OnClick="Delet_user" ></asp:Button></p>
    
 </asp:Content>

@@ -27,35 +27,35 @@
             <td class="modal-sm" style="width: 134px">Nom:</td>
             <td>
                 <br />
-                <asp:TextBox ID="TextBoxNom" runat="server" Height="30px" Width="250px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxNom" runat="server" Height="30px" Width="250px" required></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 134px">Prénom:</td>
             <td>
                 <br />
-                <asp:TextBox ID="TextBoxPrenom" runat="server" Height="30px" Width="250px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxPrenom" runat="server" Height="30px" Width="250px" required></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 134px">Adresse mail:</td>
             <td>
                 <br />
-                <asp:TextBox ID="TextBoxMail" runat="server" Height="30px" TextMode="Email" Width="250px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxMail" runat="server" Height="30px" TextMode="Email" Width="250px" required ></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="width: 134px">Objet:</td>
             <td>
                 <br />
-                <asp:TextBox ID="TextBoxObjet" runat="server" Height="30px" Width="250px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxObjet" runat="server" Height="30px" Width="250px" required ></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="modal-sm" style="height: 23px; width: 134px">Message:</td>
             <td style="height: 23px">
                 <br />
-                <asp:TextBox ID="TextBoxMessage" runat="server" Height="209px" TextMode="MultiLine" Width="389px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxMessage" runat="server" Height="209px" TextMode="MultiLine" Width="389px" required></asp:TextBox>
             </td>
         </tr>
         <tr>
