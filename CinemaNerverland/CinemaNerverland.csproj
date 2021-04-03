@@ -175,6 +175,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="membres\ticket.aspx" />
     <Content Include="membres\Web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Inscription.aspx" />
@@ -259,6 +260,13 @@
     </Compile>
     <Compile Include="membres\Profil.aspx.designer.cs">
       <DependentUpon>Profil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="membres\ticket.aspx.cs">
+      <DependentUpon>ticket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="membres\ticket.aspx.designer.cs">
+      <DependentUpon>ticket.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

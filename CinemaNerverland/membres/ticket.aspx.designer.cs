@@ -7,29 +7,38 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace CinemaNerverland
+namespace CinemaNerverland.membres
 {
 
 
-    public partial class Connexion
+    public partial class ticket
     {
 
         /// <summary>
-        /// Contrôle LoginControl.
+        /// Contrôle InscriptionAge.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login LoginControl;
+        protected global::System.Web.UI.WebControls.TextBox InscriptionAge;
 
         /// <summary>
-        /// Contrôle Inscription.
+        /// Contrôle Calendar1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Inscription;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+
+        /// <summary>
+        /// Contrôle Valider.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Valider;
     }
 }

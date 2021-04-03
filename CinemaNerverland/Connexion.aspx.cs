@@ -73,16 +73,12 @@ namespace CinemaNerverland
             cmd.ExecuteNonQuery();
             if (dt.Rows[0][0].ToString() == "1")
             {
-                ErrorMessage.Text = "Vous êtes bien connecté";
+                /*ErrorMessage.Text = "Vous êtes bien connecté";*/
                 Session["login"] = LoginControl.UserName;
 
                 FormsAuthentication.RedirectFromLoginPage(LoginControl.UserName, LoginControl.RememberMeSet);
                 //Response.Redirect("~/membres/Profil");
 
-            }
-            else
-            {
-                ErrorMessage.Text = "Utilisateur introuvable!";
             }
 
             cnn.Close();
