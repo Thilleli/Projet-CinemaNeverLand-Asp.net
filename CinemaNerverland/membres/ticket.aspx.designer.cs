@@ -15,6 +15,15 @@ namespace CinemaNerverland.membres
     {
 
         /// <summary>
+        /// Contrôle ListBoxFilms.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListBoxFilms;
+
+        /// <summary>
         /// Contrôle InscriptionAge.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace CinemaNerverland.membres
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar Calendar1;
+
+        /// <summary>
+        /// Contrôle filmSelected.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label filmSelected;
 
         /// <summary>
         /// Contrôle Valider.

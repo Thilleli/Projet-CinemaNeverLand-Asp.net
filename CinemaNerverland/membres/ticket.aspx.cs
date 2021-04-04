@@ -12,22 +12,73 @@ namespace CinemaNerverland.membres
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ListBoxFilms.Items.Clear();
+
             string connetionString;
+            MySqlConnection cnn;
 
             connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
-            //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            MySqlConnection cnn = new MySqlConnection(connetionString);
-
+            cnn = new MySqlConnection(connetionString);
             cnn.Open();
 
-            //Response.Write("Connection Réussie");
+            MySqlCommand command;
+            MySqlDataReader dataReader;
+            String sql;
+            sql = "select titre_film from film";
+
+            command = new MySqlCommand(sql, cnn);
+
+            dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                ListBoxFilms.Items.Add(dataReader["titre_film"].ToString());
+   
+            }
+
+            dataReader.Close();
+            command.Dispose();
+
             cnn.Close();
+
         }
 
         protected void send_Click(object sender, EventArgs e)
         {
+
             string connetionString;
+            MySqlConnection cnn;
+
+            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
+
+            cnn = new MySqlConnection(connetionString);
+            cnn.Open();
+
+            MySqlCommand command;
+            MySqlDataReader dataReader;
+            String sql;
+            sql = "select titre_film from film where titre_film ='" + ListBoxFilms.SelectedItem+ "'";
+
+            command = new MySqlCommand(sql, cnn);
+
+            dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                filmSelected.Text= dataReader["titre_film"].ToString();
+
+
+            }
+
+            dataReader.Close();
+            command.Dispose();
+
+            cnn.Close();
+
+
+
+            /*string connetionString;
             connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
             //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -46,9 +97,10 @@ namespace CinemaNerverland.membres
                 Response.Write(dt.Rows[0][0].ToString());
             }
             //Response.Write("Connection Réussie");
-            cnn.Close();
+            cnn.Close();*/
 
         }
+
 
     }
 }

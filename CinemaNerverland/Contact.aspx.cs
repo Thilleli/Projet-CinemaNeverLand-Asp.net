@@ -54,7 +54,29 @@ namespace CinemaNerverland
         {
             if (TextBoxNom.Text != "" && TextBoxPrenom.Text != "" && TextBoxMail.Text != "" && TextBoxObjet.Text != "" && TextBoxMessage.Text != "")
             {
-                
+                string connetionString;
+                connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
+                MySqlConnection cnn = new MySqlConnection(connetionString);
+
+                cnn.Open();
+                MySqlCommand command;
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+                String sql = "INSERT INTO `messages_users`(id_msg,nom_user,prenom_user,mail_user,objet_msg, message_user) VALUES('', @_nom , @_prenom ,@_Mail, @_objet_msg , @_message )";
+
+                command = new MySqlCommand(sql, cnn);
+
+                adapter.InsertCommand = command;
+
+                command.Parameters.AddWithValue("@_nom", TextBoxNom.Text);
+                command.Parameters.AddWithValue("@_prenom", TextBoxPrenom.Text);
+                command.Parameters.AddWithValue("@_Mail", TextBoxMail.Text);
+                command.Parameters.AddWithValue("@_objet_msg", TextBoxObjet.Text);
+                command.Parameters.AddWithValue("@_message", TextBoxMessage.Text);
+
+                adapter.InsertCommand.ExecuteNonQuery();
+                command.Dispose();
+
                 LabelSendnoOk.Text = " ";
                 LabelSendOk.Text = "Nous avons bien reçue votre message, nous allons vous répondre très prochainement! ";
 
@@ -64,13 +86,11 @@ namespace CinemaNerverland
                 TextBoxObjet.Text = " ";
                 TextBoxMessage.Text = " ";
 
-
+                cnn.Close();
             }
             else
             {
                 LabelSendnoOk.Text = "Veuillez remplir tous les champs! ";
-
-                LabelSendOk.Text = " ";
 
             }
         }
