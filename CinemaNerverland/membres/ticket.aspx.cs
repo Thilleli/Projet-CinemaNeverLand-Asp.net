@@ -12,7 +12,7 @@ namespace CinemaNerverland.membres
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ListBoxFilms.Items.Clear();
+            DropDownListFilms.Items.Clear();
 
             string connetionString;
             MySqlConnection cnn;
@@ -33,8 +33,10 @@ namespace CinemaNerverland.membres
 
             while (dataReader.Read())
             {
-                ListBoxFilms.Items.Add(dataReader["titre_film"].ToString());
-   
+                DropDownListFilms.Items.Add(dataReader["titre_film"].ToString());
+
+
+
             }
 
             dataReader.Close();
@@ -58,7 +60,7 @@ namespace CinemaNerverland.membres
             MySqlCommand command;
             MySqlDataReader dataReader;
             String sql;
-            sql = "select titre_film from film where titre_film ='" + ListBoxFilms.SelectedItem+ "'";
+            sql = "select titre_film from film where titre_film ='" + DropDownListFilms.SelectedItem+ "'";
 
             command = new MySqlCommand(sql, cnn);
 

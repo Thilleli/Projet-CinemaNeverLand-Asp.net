@@ -6,12 +6,23 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Data;
+
 namespace CinemaNerverland
 {
     public partial class _Default : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("img");
+            table.Columns.Add("titre");
+            table.Columns.Add("date");
+            table.Columns.Add("cat");
+            table.Columns.Add("genre");
+            table.Columns.Add("duree");
+            table.Columns.Add("prix");
+
+
             string connetionString;
             MySqlConnection cnn;
 
@@ -38,29 +49,23 @@ namespace CinemaNerverland
                 categorie = "Catégorie d'age : " + dataReader.GetValue(5) + "</br>";
                 durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
                 film = img + titre + date + genre + prix + categorie + durée;
+                //Response.Write(film);
 
-                
-                Response.Write(film);
-
+                table.Rows.Add(film);
             }
             
+
             
-             
+
+
+            DataList1.DataSource = table;
+            DataList1.DataBind();
+
+
             dataReader.Close();
             command.Dispose();
 
             cnn.Close();
-
-           /* DataTable table = new DataTable();
-            table.Columns.Add("ID");
-            table.Columns.Add("Name");
-            table.Columns.Add("Email");
-            table.Rows.Add("101", "Sachin Kumar", "sachin@example.com");
-            table.Rows.Add("102", "Peter", "peter@example.com");
-            table.Rows.Add("103", "Ravi Kumar", "ravi@example.com");
-            table.Rows.Add("104", "Irfan", "irfan@example.com");
-            DataList1.DataSource = table;
-            DataList1.DataBind();*/
         }
     }
 }
