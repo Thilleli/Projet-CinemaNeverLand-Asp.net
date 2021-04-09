@@ -12,42 +12,46 @@ namespace CinemaNerverland.membres
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DropDownListFilms.Items.Clear();
+            if (!Page.IsPostBack)
+            { 
+                DropDownListFilms.Items.Clear();
+                DropDownListFilms.Items.Add("Veuillez faire un choix");
 
-            string connetionString;
-            MySqlConnection cnn;
+                string connetionString;
+                MySqlConnection cnn;
 
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
+                connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
 
-            cnn = new MySqlConnection(connetionString);
-            cnn.Open();
+                cnn = new MySqlConnection(connetionString);
+                cnn.Open();
 
-            MySqlCommand command;
-            MySqlDataReader dataReader;
-            String sql;
-            sql = "select titre_film from film";
+                MySqlCommand command;
+                MySqlDataReader dataReader;
+                String sql;
+                sql = "select titre_film from film";
 
-            command = new MySqlCommand(sql, cnn);
+                command = new MySqlCommand(sql, cnn);
 
-            dataReader = command.ExecuteReader();
+                dataReader = command.ExecuteReader();
 
-            while (dataReader.Read())
-            {
-                DropDownListFilms.Items.Add(dataReader["titre_film"].ToString());
+                while (dataReader.Read())
+                {
+                    DropDownListFilms.Items.Add(dataReader["titre_film"].ToString());
+                }
 
+                dataReader.Close();
+                command.Dispose();
 
-
+                
+                cnn.Close();
             }
-
-            dataReader.Close();
-            command.Dispose();
-
-            cnn.Close();
-
         }
 
         protected void send_Click(object sender, EventArgs e)
         {
+           
+            
+            CheckBoxListDisponibiliteFilm.Items.Clear();
 
             string connetionString;
             MySqlConnection cnn;
@@ -59,8 +63,10 @@ namespace CinemaNerverland.membres
 
             MySqlCommand command;
             MySqlDataReader dataReader;
+           
             String sql;
-            sql = "select titre_film from film where titre_film ='" + DropDownListFilms.SelectedItem+ "'";
+            int prixFilm, nombrePlaces, PrixTotal;
+            sql = "select titre_film, prix_film from film where titre_film ='" + DropDownListFilms.SelectedItem+ "'";
 
             command = new MySqlCommand(sql, cnn);
 
@@ -68,41 +74,41 @@ namespace CinemaNerverland.membres
 
             while (dataReader.Read())
             {
-                filmSelected.Text= dataReader["titre_film"].ToString();
-
-
+                prixFilm = dataReader.GetInt16(1);
+                nombrePlaces = int.Parse(nbrPlaces.Text);
+                PrixTotal = prixFilm * nombrePlaces;
+                filmSelected.Text= "Vous avez choisi : " + nbrPlaces.Text +" places pour " + dataReader.GetValue(0).ToString()+ "</br> " +
+                    "Le prix total est: "+ PrixTotal;
+                
             }
 
             dataReader.Close();
             command.Dispose();
 
-            cnn.Close();
+            //-----------------2eme connexion à la bdd -------------------------------
+            
+            MySqlCommand command2;
+            MySqlDataReader dataReader2;
+            String sql2;
+            sql2 = "SELECT debut_seance,fin_seance,date_seance,nom_salle FROM seance JOIN film ON film.id_film = seance.id_film AND film.titre_film = '"+ DropDownListFilms.SelectedItem + "'" +
+                 " INNER JOIN salle ON salle.id_salle=seance.id_salle AND salle.id_salle ='1' ";
+            command2 = new MySqlCommand(sql2, cnn);
 
+            dataReader2 = command2.ExecuteReader();
 
-
-            /*string connetionString;
-            connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
-            //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-            MySqlConnection cnn = new MySqlConnection(connetionString);
-
-            cnn.Open();
-
-            MySqlCommand cmd = new MySqlCommand("select count(*) from seance where date_seance='" + Calendar1 + "' ", cnn);
-            MySqlDataAdapter sda = new MySqlDataAdapter(cmd);
-            System.Data.DataTable dt = new System.Data.DataTable();
-            sda.Fill(dt);
-            Response.Write(Calendar1);
-            cmd.ExecuteNonQuery();
-            if (dt.Rows[0][0].ToString() !="")
+            while (dataReader2.Read())
             {
-                Response.Write(dt.Rows[0][0].ToString());
+                CheckBoxListDisponibiliteFilm.Items.Add(" Entre " +dataReader2["debut_seance"].ToString() + "h et "+dataReader2["fin_seance"].ToString()+ "h le: "+
+                    dataReader2["date_seance"].ToString() + " dans la " + dataReader2["nom_salle"].ToString());
             }
-            //Response.Write("Connection Réussie");
-            cnn.Close();*/
+
+            dataReader2.Close();
+            command2.Dispose();
+
+            cnn.Close();
 
         }
 
-
+     
     }
 }

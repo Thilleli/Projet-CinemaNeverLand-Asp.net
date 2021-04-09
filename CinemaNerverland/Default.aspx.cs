@@ -49,14 +49,10 @@ namespace CinemaNerverland
                 categorie = "Catégorie d'age : " + dataReader.GetValue(5) + "</br>";
                 durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
                 film = img + titre + date + genre + prix + categorie + durée;
-                //Response.Write(film);
+                
 
                 table.Rows.Add(film);
             }
-            
-
-            
-
 
             DataList1.DataSource = table;
             DataList1.DataBind();

@@ -177,6 +177,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="membres\ticket.aspx" />
     <Content Include="membres\Web.config" />
+    <Content Include="Styles.css" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Inscription.aspx" />
     <Content Include="membres\Profil.aspx" />
@@ -289,6 +291,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
