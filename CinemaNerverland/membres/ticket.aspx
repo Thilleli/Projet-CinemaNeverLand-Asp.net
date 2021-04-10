@@ -26,5 +26,12 @@
         <asp:CheckBoxList ID="CheckBoxListDisponibiliteFilm" runat="server">
         </asp:CheckBoxList>
         <br />
+        <asp:Label ID="Reservation" runat="server"></asp:Label>
+        <br />
+
+    &nbsp;<asp:Button ID="ValiderReservation" runat="server"  OnClick="reservation" Text="Valider pour réserver les places" />
+        <br />
+        <asp:Label ID="MessageValidation" runat="server"></asp:Label>
+        <br />
  
 </asp:Content>

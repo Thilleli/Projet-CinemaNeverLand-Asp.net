@@ -64,8 +64,8 @@ namespace CinemaNerverland.membres
             MySqlCommand command;
             MySqlDataReader dataReader;
            
-            String sql;
-            int prixFilm, nombrePlaces, PrixTotal;
+            String sql, titrefilm=" ";
+            int prixFilm, nombrePlaces, PrixTotal, prixsalle;
             sql = "select titre_film, prix_film from film where titre_film ='" + DropDownListFilms.SelectedItem+ "'";
 
             command = new MySqlCommand(sql, cnn);
@@ -75,10 +75,8 @@ namespace CinemaNerverland.membres
             while (dataReader.Read())
             {
                 prixFilm = dataReader.GetInt16(1);
-                nombrePlaces = int.Parse(nbrPlaces.Text);
-                PrixTotal = prixFilm * nombrePlaces;
-                filmSelected.Text= "Vous avez choisi : " + nbrPlaces.Text +" places pour " + dataReader.GetValue(0).ToString()+ "</br> " +
-                    "Le prix total est: "+ PrixTotal;
+                titrefilm = dataReader.GetValue(0).ToString();
+                filmSelected.Text= "Vous avez choisi : " + nbrPlaces.Text +" places pour " + titrefilm + "</br> " ;
                 
             }
 
@@ -105,10 +103,44 @@ namespace CinemaNerverland.membres
             dataReader2.Close();
             command2.Dispose();
 
+            //prixFilm = dataReader.GetInt16(1);
+            //nombrePlaces = int.Parse(nbrPlaces.Text);
+            //prixsalle = 3;
+            //PrixTotal = (prixFilm + prixsalle )* nombrePlaces;
+            //Reservation.Text = "Vous avez choisi" + nombrePlaces+ "place(s) pour "+ titrefilm+ "pour un prix total de " + PrixTotal;
+
             cnn.Close();
 
         }
 
-     
+        protected void reservation(object sender, EventArgs e)
+        {
+                /*string connetionString;
+                MySqlConnection cnn;
+                connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
+                cnn = new MySqlConnection(connetionString);
+                cnn.Open();
+
+                MySqlCommand command;
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+                String sql = "INSERT INTO `reglement`(id_reglement,montant_regle,nbr_place,id_seance,id_user) VALUES('', @_montant , @_nbrPlaces , @_idSeance ,@_idUser)";
+
+                command = new MySqlCommand(sql, cnn);
+
+                adapter.InsertCommand = command;
+                command.Parameters.AddWithValue("@_montant", InscriptionNom.Text);
+                command.Parameters.AddWithValue("@_nbrPlaces", InscriptionName.Text);
+                command.Parameters.AddWithValue("@_idSeance", InscriptionAge.Text);
+                command.Parameters.AddWithValue("@_idUser", InscriptionMail.Text);
+
+                adapter.InsertCommand.ExecuteNonQuery();
+                command.Dispose();
+                MessageValidation.Text = "Votre réseration a bien été effectuée, vous allez recevoir un mail de confirmation <br> Le prix total de: € est à payer sur place";
+                cnn.Close();
+            */
+        }
+            
+
     }
 }

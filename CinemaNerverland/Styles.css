@@ -20,14 +20,31 @@ body {
     background-color: white;
 }
 
-    .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.container { /*contenu de chaque film*/
+    padding: 2px 10px;
+}
+.hide {
+    display: inline-block;
+    position: relative;
+}
+.hide:hover .image {
+        opacity: 0.3;
     }
 
-    .card p {
-        margin-bottom: 80px;
-    }
+#image {
+    width: 105px;
+    height: 95px;
+}
 
+.image {
+    display: inline-block;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
 
 h2, h3 {
     text-align: center;
