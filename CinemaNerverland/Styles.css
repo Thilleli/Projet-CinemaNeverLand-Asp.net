@@ -1,10 +1,6 @@
 ﻿body, html {
     height: 100%;
-}
-
-body {
-    text-align: center;
-    /*background-color: #d3f0fa;*/
+    background-color: #d3f0fa;
 }
 
 h2, h3 {
@@ -22,6 +18,8 @@ footer {
     width: 95%;
     border-radius: 5px;
     margin-bottom: 20px;
+    background-color:white;
+    text-align:center;
 }
 
     .card:hover {
@@ -32,4 +30,44 @@ img {
     border-radius: 5px 5px 0 0;
     width: 100%;
     margin-bottom: 30px;
+}
+
+.msgvalid{
+    color:green;
+}
+.centerCheckBox {
+    text-align: center;
+    margin-left: 65px;
+}
+.centerCase {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 50%;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 50px;
+    margin-top: 20px;
+    background-color:white;
+}
+.divMesgValidation {
+    margin-top: 20px;
+}
+.bodyContact {
+    margin-left: 300px;
+}
+.CaselogInscri {
+    margin-left: 180px;
+    text-align: justify;
+}
+.Case{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+   
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 75px;
+    margin-right: 50px;
+    margin-top: 20px;
+    background-color:white;
 }

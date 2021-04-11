@@ -98,7 +98,7 @@ namespace CinemaNerverland.membres
 
             while (dataReader2.Read())
             {
-                CheckBoxListDisponibiliteFilm.Items.Add(" Entre " +dataReader2["debut_seance"].ToString() + "h et "+dataReader2["fin_seance"].ToString()+ "h le: "+
+                CheckBoxListDisponibiliteFilm.Items.Add("Entre " +dataReader2["debut_seance"].ToString() + "h et "+dataReader2["fin_seance"].ToString()+ "h le: "+
                     dataReader2["date_seance"].ToString() + " dans la " + dataReader2["nom_salle"].ToString());
 
                 Prix_salle.Text = dataReader2["prix_salle"].ToString();
@@ -200,7 +200,7 @@ namespace CinemaNerverland.membres
 
                 adapter.InsertCommand.ExecuteNonQuery();
                 command.Dispose();
-                MessageValidation.Text = "<b>Votre réseration a bien été effectuée, vous allez recevoir un mail de confirmation <br> Le prix total de: "+ Prix_Total.Text + "€ est à payer sur place</b>";
+                MessageValidation.Text = "<b> <div class='msgvalid'> Votre réseration a bien été effectuée, vous allez recevoir un mail de confirmation <br> Le prix total de: "+ Prix_Total.Text + "€ est à payer sur place</div></b>";
                 
             
             

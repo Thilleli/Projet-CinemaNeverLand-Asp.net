@@ -42,7 +42,7 @@ namespace CinemaNerverland
             while (dataReader.Read())
             {
                 img = "<img src='" + dataReader.GetValue(7) + "'/>";
-                titre = "</br> <b> Titre : " + dataReader.GetValue(1) + "</b> </br>";
+                titre = "</br> <b>" + dataReader.GetValue(1) + "</b></br>";
                 date = "<b> Date de sortie </b>: " + dataReader.GetValue(2) + "</br>";
                 genre = "<b> Genre : </b> " + dataReader.GetValue(3) + "</br>";
                 prix = "<b> Prix : </b> " + dataReader.GetValue(4) + "€ </br>";

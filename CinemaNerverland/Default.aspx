@@ -6,7 +6,7 @@
  
         <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">  
             <ItemTemplate>  
-                <table  style="/*width: 300px; height: 100px; border: dashed 2px #04AFEF; background-color: #FFFFFF*/">  
+                <table>  
                     <tr >  
                         <td colspan="2" rowspan="2"> 
                             <div class='card'>
@@ -19,7 +19,7 @@
                             <span class="time"><%# Eval("duree")%></span> 
                             <span class="prix"><%# Eval("prix")%></span>
                                     </div>
-                                </div>
+                            </div>
                         </td>  
                     </tr>  
                 </table>  
