@@ -16,13 +16,11 @@ namespace CinemaNerverland
             string connetionString;
 
             connetionString = @"Data Source=mysql-cinemaneverland.alwaysdata.net;Database=cinemaneverland_bdd ;User ID=219115_wb;Password=wasefbelhocine01*";
-            //connetionString = @"Server=tcp:myservertuto.database.windows.net,1433;Initial Catalog=mydbtuto;Persist Security Info=False;User ID=myadmin;Password=Admin123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
+           
             MySqlConnection cnn = new MySqlConnection(connetionString);
 
             cnn.Open();
 
-            //Response.Write("Connection Réussie");
             cnn.Close();
         }
         protected void send_Click(object sender, EventArgs e)
@@ -73,11 +71,10 @@ namespace CinemaNerverland
             cmd.ExecuteNonQuery();
             if (dt.Rows[0][0].ToString() == "1")
             {
-                /*ErrorMessage.Text = "Vous êtes bien connecté";*/
                 Session["login"] = LoginControl.UserName;
 
                 FormsAuthentication.RedirectFromLoginPage(LoginControl.UserName, LoginControl.RememberMeSet);
-                //Response.Redirect("~/membres/Profil");
+              
 
             }
 

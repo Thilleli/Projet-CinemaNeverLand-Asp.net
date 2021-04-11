@@ -34,7 +34,7 @@ namespace CinemaNerverland
             MySqlCommand command;
             MySqlDataReader dataReader;
             String sql, titre = " ", date = " ", genre = " ", prix = " ", categorie = " ", durée = " ", img = " ", film = " ";
-            sql = "select * from film where date_film > 2021-02-12";
+            sql = "select * from film where date_film > 2021-03-12";
 
             command = new MySqlCommand(sql, cnn);
 
@@ -42,14 +42,14 @@ namespace CinemaNerverland
             while (dataReader.Read())
             {
                 img = "<img src='" + dataReader.GetValue(7) + "'/>";
-                titre = "</br> Titre : " + dataReader.GetValue(1) + "</br>";
-                date = "Date de sortie : " + dataReader.GetValue(2) + "</br>";
-                genre = "Genre : " + dataReader.GetValue(3) + "</br>";
-                prix = "Prix : " + dataReader.GetValue(4) + "€ </br>";
-                categorie = "Catégorie d'age : " + dataReader.GetValue(5) + "</br>";
-                durée = "Durée : " + dataReader.GetValue(6) + " h </br>";
+                titre = "</br> <b> Titre : " + dataReader.GetValue(1) + "</b> </br>";
+                date = "<b> Date de sortie </b>: " + dataReader.GetValue(2) + "</br>";
+                genre = "<b> Genre : </b> " + dataReader.GetValue(3) + "</br>";
+                prix = "<b> Prix : </b> " + dataReader.GetValue(4) + "€ </br>";
+                categorie = "<b> Catégorie d'age : </b> " + dataReader.GetValue(5) + "</br>";
+                durée = "<b> Durée : </b> " + dataReader.GetValue(6) + " h </br>";
                 film = img + titre + date + genre + prix + categorie + durée;
-                
+
 
                 table.Rows.Add(film);
             }

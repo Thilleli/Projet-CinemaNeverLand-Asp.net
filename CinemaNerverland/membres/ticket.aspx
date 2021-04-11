@@ -19,14 +19,20 @@
     
     &nbsp;<asp:Button ID="Valider" runat="server"  OnClick="send_Click" Text="Valider" />
         <br />
-
-        <asp:Label ID="filmSelected" runat="server" ></asp:Label>
+    <asp:Label ID="Reservation" runat="server"></asp:Label>
         <br />
         <strong><p>Choisir une séance:</p></strong>
         <asp:CheckBoxList ID="CheckBoxListDisponibiliteFilm" runat="server">
         </asp:CheckBoxList>
         <br />
-        <asp:Label ID="Reservation" runat="server"></asp:Label>
+    &nbsp;<asp:Button ID="ValiderSeance" runat="server"  OnClick="Valider_Seance" Text="ValiderSeance" />
+        <br />
+     <asp:Label ID="Reservation2" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="Prix_Total" runat="server" visible="false"></asp:Label>
+        &nbsp;<asp:Label ID="Prix_salle" runat="server" visible="false"></asp:Label>
+        <asp:Label ID="idSeance" runat="server" visible="false"></asp:Label>
+        <asp:Label ID="idUser" runat="server"></asp:Label>
         <br />
 
     &nbsp;<asp:Button ID="ValiderReservation" runat="server"  OnClick="reservation" Text="Valider pour réserver les places" />

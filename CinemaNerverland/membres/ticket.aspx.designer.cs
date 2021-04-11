@@ -42,13 +42,13 @@ namespace CinemaNerverland.membres
         protected global::System.Web.UI.WebControls.Button Valider;
 
         /// <summary>
-        /// Contrôle filmSelected.
+        /// Contrôle Reservation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label filmSelected;
+        protected global::System.Web.UI.WebControls.Label Reservation;
 
         /// <summary>
         /// Contrôle CheckBoxListDisponibiliteFilm.
@@ -60,13 +60,58 @@ namespace CinemaNerverland.membres
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListDisponibiliteFilm;
 
         /// <summary>
-        /// Contrôle Reservation.
+        /// Contrôle ValiderSeance.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Reservation;
+        protected global::System.Web.UI.WebControls.Button ValiderSeance;
+
+        /// <summary>
+        /// Contrôle Reservation2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Reservation2;
+
+        /// <summary>
+        /// Contrôle Prix_Total.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Prix_Total;
+
+        /// <summary>
+        /// Contrôle Prix_salle.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Prix_salle;
+
+        /// <summary>
+        /// Contrôle idSeance.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idSeance;
+
+        /// <summary>
+        /// Contrôle idUser.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idUser;
 
         /// <summary>
         /// Contrôle ValiderReservation.

@@ -6,29 +6,23 @@
  
         <asp:DataList ID="DataList1" runat="server" RepeatColumns="3">  
             <ItemTemplate>  
-                <div class='card'>
-                <table>
-                    <div class='hide'>
-                        <tr >  
-                            <td> 
-                                <b></b><span class="image"><%# Eval("img") %></span><br />  
-                            </td>  
-                        </tr> 
-                    </div>
-                    <div class='container'>
-                        <tr >  
-                            <td> 
-                                 <span class="title"><%# Eval("titre") %></span><br />  
-                                 <span class="date"><%# Eval("date")%></span><br />  
-                                 <span class="categorie"><%# Eval("cat")%></span><br />  
-                                 <span class="genre"><%# Eval("genre")%></span><br /> 
-                                 <span class="time"><%# Eval("duree")%></span><br />  
-                                 <span class="prix"><%# Eval("prix")%></span><br />   
-                            </td>  
-                        </tr> 
-                     </div>
-                </table> 
-                </div>
+                <table  style="/*width: 300px; height: 100px; border: dashed 2px #04AFEF; background-color: #FFFFFF*/">  
+                    <tr >  
+                        <td colspan="2" rowspan="2"> 
+                            <div class='card'>
+                            <b></b><span class="img"><%# Eval("img") %></span></br></br></br>
+                                <div style='margin-top: 30px;'>
+                            <span class="title"><%# Eval("titre") %></span>
+                            <span class="date"><%# Eval("date")%></span> 
+                            <span class="categorie"><%# Eval("cat")%></span>
+                            <span class="genre"><%# Eval("genre")%></span> 
+                            <span class="time"><%# Eval("duree")%></span> 
+                            <span class="prix"><%# Eval("prix")%></span>
+                                    </div>
+                                </div>
+                        </td>  
+                    </tr>  
+                </table>  
             </ItemTemplate>  
         </asp:DataList>  
 
